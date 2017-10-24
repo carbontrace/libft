@@ -5,6 +5,7 @@ AR          =    ar
 
 FILENAMES    +=    ft_abs.c \
 				   ft_atoi.c \
+				   ft_atoi_base.c \
 				   ft_bzero.c \
 				   get_next_line.c \
 				   ft_isalnum.c \

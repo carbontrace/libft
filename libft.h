@@ -6,7 +6,7 @@
 /*   By: cterrill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 11:35:02 by cterrill          #+#    #+#             */
-/*   Updated: 2017/10/23 19:44:30 by cterrill         ###   ########.fr       */
+/*   Updated: 2017/10/23 20:20:32 by cterrill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ typedef	struct		s_list
 
 int					ft_abs(int num);
 int					ft_atoi(const char *str);
+int					ft_atoi_base(const char *nptr, const char *base);
 void				ft_bzero(void *s, size_t n);
 int					get_next_line(const int fd, char **line);
 int					ft_greater(int a, int b);
+int					get_next_line(int const fd, char **line);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
