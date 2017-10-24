@@ -6,22 +6,29 @@
 /*   By: cterrill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 11:35:02 by cterrill          #+#    #+#             */
-/*   Updated: 2017/10/19 12:58:24 by cterrill         ###   ########.fr       */
+/*   Updated: 2017/10/23 19:44:30 by cterrill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define TRUE 1
-# define FALSE 0
 # define WHITESPACE(x) x == '\t' || x == '\n' || x == ' '
+# define BUFF_SIZE 1024
+# define FALSE 0
+# define TRUE 1
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
 # include <fcntl.h>
-# include "get_next_line.h"
+
+typedef struct		s_file
+{
+	int				fd;
+	char			*buf;
+}					t_file;
 
 typedef	struct		s_list
 {
@@ -29,8 +36,6 @@ typedef	struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
-#include "libft.h"
 
 int					ft_abs(int num);
 int					ft_atoi(const char *str);
@@ -47,7 +52,7 @@ int					ft_isupper(int c);
 char				*ft_itoa(int n);
 int					ft_lesser(int a, int b);
 void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstdel(t_list *lst);
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 size_t				ft_lstlen(t_list *list);
