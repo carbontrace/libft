@@ -4,10 +4,9 @@ CFLAGS      =    -Wall -Wextra -Werror
 AR          =    ar
 
 FILENAMES    +=    ft_abs.c \
-				   ft_atoi.c \
-				   ft_atoi_base.c \
+					 ft_atoi.c \
 				   ft_bzero.c \
-				   get_next_line.c \
+					 get_next_line.c \
 				   ft_isalnum.c \
 				   ft_isalpha.c \
 				   ft_isascii.c \
@@ -65,19 +64,26 @@ FILENAMES    +=    ft_abs.c \
 				   ft_swapbyte.c \
 				   ft_strrev.c \
 				   ft_nlen.c \
-				   ft_lerpi.c \
-				   ft_lstlen.c \
+					 ft_lerpi.c \
+					 ft_lstlen.c \
 				   ft_lstnew.c \
 				   ft_lstdelone.c \
 				   ft_lstadd.c \
 				   ft_lstdel.c \
 				   ft_lstiter.c \
 				   ft_lstmap.c \
-				   ft_lstrev.c \
-				   ft_tablen.c
+					 ft_lstrev.c \
+					 ft_tablen.c
 
 SOURCES        =    $(FILENAMES)
 OBJECTS        =    $(FILENAMES:.c=.o)
+
+.SILENT:
+
+.PHONY: all multi
+
+#multi:
+#	        $(MAKE) -j8 all
 
 all: $(NAME)
 
@@ -92,9 +98,12 @@ fclean: clean
 
 re: fclean all
 
+$(OBJECTS): $(SOURCES)
+	$(CC) $(CFLAGS) -c $^
+
 $(NAME): $(OBJECTS)
 	@printf '\033[32m[ ✔ ] %s\n\033[0m' "libft Created"
 	@$(AR) crs $@ $(OBJECTS)
 
-%.o: srcs/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+#%.o: srcs/%.c
+#	$(CC) $(CFLAGS) -c $< -o $@
